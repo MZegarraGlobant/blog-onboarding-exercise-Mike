@@ -1,5 +1,6 @@
-import { createClient, CreateClientParams } from "contentful";
+import { createClient, CreateClientParams, Entry } from "contentful";
 import { contenfulImageFormated } from "src/utils/formating";
+import { IPost } from "components/Post/Post";
 
 const params = {
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -11,8 +12,7 @@ export const getPosts = async () => {
   const { items } = await client.getEntries({
     content_type: "post",
   });
-  console.log(typeof items);
-  const posts: Array<Object> = items.map((post: Object): Object => {
+  const posts: Array<Object> = items.map((post: Entry<any>): IPost => {
     const fields = post.fields;
     return {
       title: fields.title,
