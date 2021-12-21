@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import PostPreview from "components/PostPreview/PostPreview";
+import { IPost } from "components/Post/Post";
 
 interface IBlogSection {
   title?: string;
-  posts: Array<any>;
+  posts: Array<IPost>;
   variant: string;
   filter?: boolean;
 }

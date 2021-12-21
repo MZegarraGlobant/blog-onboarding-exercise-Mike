@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { IPost } from "../Post/Post";
 
 export interface IPostPreview {
-  post: any;
+  post: IPost;
   variant: string;
 }
 

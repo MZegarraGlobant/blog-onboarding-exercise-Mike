@@ -11,7 +11,8 @@ export const getPosts = async () => {
   const { items } = await client.getEntries({
     content_type: "post",
   });
-  const posts: Array<any> = items.map((post: any): Object => {
+  console.log(typeof items);
+  const posts: Array<Object> = items.map((post: Object): Object => {
     const fields = post.fields;
     return {
       title: fields.title,
