@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import Image from "next/image";
 import { IPost } from "../Post/Post";
-
 export interface IPostPreview {
   post: IPost;
   variant: string;
@@ -8,10 +7,18 @@ export interface IPostPreview {
 
 const PostPreview = ({ post, variant }: IPostPreview) => {
   return (
-    <div>
-      {post.title}
-      {post.author}
-      {post.category}
+    <div className="post-preview-md">
+      <Image
+        src={`https:${post.hero.url}`}
+        alt={post.hero.alt}
+        layout="fill"
+        className="hero-post-preview-state"
+      />
+      <div className="post-preview-information-state">
+        {post.title}
+        {post.author}
+        {post.category}
+      </div>
     </div>
   );
 };

@@ -14,3 +14,18 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.post-preview-md {
+  width: 20em;
+  height: 10em;
+  position: relative;
+}
+
+.hero-post-preview-state {
+  position: absolute;
+  z-index: -1;
+}
+
+.post-preview-information-state {
+  background-color: rgba(255, 255, 255, 0.74);
+}
