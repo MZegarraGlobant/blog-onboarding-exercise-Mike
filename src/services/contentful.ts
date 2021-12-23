@@ -1,5 +1,8 @@
 import { createClient, CreateClientParams, Entry } from "contentful";
-import { contenfulImageFormated } from "src/utils/formating";
+import {
+  contenfulDateFormated,
+  contenfulImageFormated,
+} from "src/utils/formating";
 import { IPost } from "components/Post/Post";
 
 const params = {
@@ -20,7 +23,7 @@ export const getPosts = async () => {
       hero: contenfulImageFormated(fields.hero),
       author: fields.author,
       category: fields.category,
-      date: fields.date,
+      date: contenfulDateFormated(fields.date),
     };
   });
   return posts || null;

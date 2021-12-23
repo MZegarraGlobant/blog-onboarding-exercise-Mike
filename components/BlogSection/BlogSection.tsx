@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import PostPreview from "components/PostPreview/PostPreview";
+import EditoralStory from "components/EditorialStory/EditorialStory";
 import { IPost } from "components/Post/Post";
 
 interface IBlogSection {
@@ -13,13 +12,7 @@ const BlogSection = ({ title, variant, filter, posts }: IBlogSection) => {
   return (
     <div>
       {title}
-      {posts.map((element, key) => (
-        <PostPreview
-          post={element}
-          variant={variant}
-          key={`${element.title}-preview-${key}`}
-        />
-      ))}
+      {variant === "editorialStory" ? <EditoralStory posts={posts} /> : null}
     </div>
   );
 };
