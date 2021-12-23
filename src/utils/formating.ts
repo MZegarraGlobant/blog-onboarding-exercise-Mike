@@ -10,12 +10,11 @@ export const contenfulImageFormated = (imageObject: Entry<any>): IImage => {
 };
 
 export const contenfulDateFormated = (date: string): string => {
-  const options = {
+  const dateInDate: Date = new Date(date);
+  const formatedDate: string = dateInDate.toLocaleString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
-  };
-  const dateInDate: Date = new Date(date);
-  const formatedDate: string = dateInDate.toLocaleString("en-US", options);
+  });
   return formatedDate;
 };
