@@ -2,7 +2,7 @@ import { IImage } from "src/utils/formating";
 
 export interface IPost {
   title: string;
-  date: Date;
+  date: string;
   category: string;
   body: string;
   author: string;
