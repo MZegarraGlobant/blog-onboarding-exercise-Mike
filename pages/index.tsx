@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import BlogSection from "components/BlogSection/BlogSection";
+import BlogSection from "components/BlogSection";
 import { getPosts } from "@services/contentful";
-import { IPost } from "../components/Post/Post";
+import { IPost } from "../components/Post";
 
 interface IHomeProps {
   posts: IPost[];

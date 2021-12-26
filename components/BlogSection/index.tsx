@@ -1,5 +1,5 @@
-import EditoralStory from "components/EditorialStory/EditorialStory";
-import { IPost } from "components/Post/Post";
+import EditoralStory from "components/EditorialStory";
+import { IPost } from "components/Post";
 
 interface IBlogSection {
   title?: string;

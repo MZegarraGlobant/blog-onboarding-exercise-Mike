@@ -1,5 +1,5 @@
-import { IPost } from "components/Post/Post";
-import PostPreview from "components/PostPreview/PostPreview";
+import { IPost } from "components/Post";
+import PostPreview from "components/PostPreview";
 
 interface IEditoralStory {
   posts: Array<IPost>;

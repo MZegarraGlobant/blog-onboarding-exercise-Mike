@@ -3,7 +3,7 @@ import {
   contenfulDateFormated,
   contenfulImageFormated,
 } from "src/utils/formating";
-import { IPost } from "components/Post/Post";
+import { IPost } from "components/Post";
 
 const params = {
   space: process.env.CONTENTFUL_SPACE_ID,

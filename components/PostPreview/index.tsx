@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { IPost } from "../Post/Post";
+import { IPost } from "../Post";
 export interface IPostPreview {
   post: IPost;
   variant?: string;
