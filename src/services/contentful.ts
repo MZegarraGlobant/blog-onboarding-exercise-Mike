@@ -10,7 +10,7 @@ const params = {
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 } as CreateClientParams;
 
-export const getPosts = async () => {
+export const fetchPosts = async () => {
   const client = createClient(params);
   const { items } = await client.getEntries({
     content_type: "post",
