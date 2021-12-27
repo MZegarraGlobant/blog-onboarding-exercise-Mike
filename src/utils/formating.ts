@@ -1,3 +1,4 @@
+import { IPost } from "components/Post";
 import { Entry } from "contentful";
 
 export interface IImage {
@@ -17,4 +18,15 @@ export const contenfulDateFormated = (date: string): string => {
     day: "numeric",
   });
   return formatedDate;
+};
+
+export const extractCategoriesFormated = (posts: IPost[]): string[] => {
+  const avaibleCategories = posts.map((element) => element.category);
+  const categoriesFormated = avaibleCategories.filter(function (
+    element,
+    index
+  ) {
+    return avaibleCategories.indexOf(element) === index;
+  });
+  return categoriesFormated;
 };

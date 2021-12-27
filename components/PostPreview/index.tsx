@@ -115,6 +115,61 @@ const PostPreview = ({ post, variant }: IPostPreview) => {
           .post-preview-date-author-column-md {
             display: none;
           }
+
+          .post-preview-card-md {
+            width: 20em;
+            height: 20em;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.4s ease 0s;
+          }
+          .post-preview-card-md:hover {
+            transform: translateY(-5px);
+            box-shadow: rgb(0 0 0 / 25%) 0px 5px 20px 5px;
+          }
+          .post-preview-information-card-state {
+            width: 100%;
+            height: 55%;
+            background-color: rgba(255, 255, 255);
+            display: flex;
+            flex-direction: column;
+            padding: 1.5em;
+          }
+          .hero-post-preview-card-state {
+            height: 45%;
+            width: 100%;
+            position: relative;
+          }
+          .category-tag-card-state {
+            color: rgb(11, 106, 230);
+            text-transform: uppercase;
+            font-size: medium;
+          }
+          .post-preview-title-card-state {
+            color: rgb(42, 48, 57);
+            font-weight: 500;
+            font-size: x-large;
+            margin-top: 0.35em;
+          }
+          .post-preview-date-author-card-md {
+            margin-top: 1em;
+            font-weight: 100;
+          }
+          .post-preview-date-card-state {
+            margin-right: 1em;
+          }
+          .post-preview-date-front-card:after {
+            content: "";
+            background: #c3c3ce;
+            position: absolute;
+            margin-left: 10em;
+            bottom: 0;
+            left: 0;
+            height: 0.8em;
+            width: 1.5px;
+            transform: translateY(-360%);
+          }
         `}
       </style>
     </>
