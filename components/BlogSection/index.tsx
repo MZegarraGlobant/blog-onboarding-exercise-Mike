@@ -2,8 +2,6 @@ import EditoralStory from "components/EditorialStory";
 import BrowseAll from "components/BrowseAll";
 import BlogSectionHeader from "components/BlogSectionHeader";
 import { IPost } from "components/Post";
-import { useState } from "react";
-import { extractCategoriesFormated } from "src/utils/formating";
 import { BlogSectionVariants } from "src/utils/contentfulEnums";
 
 interface IBlogSection {
@@ -19,7 +17,6 @@ const BlogSection = ({
   categoryFilter,
   posts,
 }: IBlogSection) => {
-  const categories: string[] = extractCategoriesFormated(posts);
   return (
     <>
       <div className="blog-section">
@@ -27,7 +24,7 @@ const BlogSection = ({
           <BlogSectionHeader
             title={title}
             categoryFilter={categoryFilter}
-            categories={categories}
+            posts={posts}
           />
         </div>
         <div>
@@ -42,9 +39,9 @@ const BlogSection = ({
       <style jsx>
         {`
           .blog-section {
-            background-color: ${variant === "browseAll"
+            background-color: ${variant === BlogSectionVariants.browseAll
               ? "rgb(242, 248, 251)"
-              : "	rgba(255,255,255,0)"};
+              : "rgba(255,255,255,0)"};
             margin: 2em 0em;
             padding: 2em 0em;
           }

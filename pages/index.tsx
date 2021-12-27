@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 import BlogSection from "components/BlogSection";
 import { fetchPosts } from "@services/contentful";
 import { IPost } from "../components/Post";
@@ -18,7 +17,7 @@ export async function getServerSideProps() {
 
 const Home: NextPage<IHomeProps> = ({ posts }) => {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Contentful blog by Mike</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,7 +40,6 @@ const Home: NextPage<IHomeProps> = ({ posts }) => {
         categoryFilter
       />
       {/* <BlogSection title="BROWSE ALL" variant="grid" posts={posts} /> */}
-      <main className={styles.main}></main>
     </div>
   );
 };

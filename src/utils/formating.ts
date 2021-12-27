@@ -22,10 +22,7 @@ export const contenfulDateFormated = (date: string): string => {
 
 export const extractCategoriesFormated = (posts: IPost[]): string[] => {
   const avaibleCategories = posts.map((element) => element.category);
-  const categoriesFormated = avaibleCategories.filter(function (
-    element,
-    index
-  ) {
+  const categoriesFormated = avaibleCategories.filter((element, index) => {
     return avaibleCategories.indexOf(element) === index;
   });
   return categoriesFormated;

@@ -1,24 +1,24 @@
 import { IPost } from "components/Post";
+import { extractCategoriesFormated } from "src/utils/formating";
 import PostPreviewFilter from "components/PostPreviewFilter";
 
 interface IBlogSectionHeader {
   title?: string;
   categoryFilter?: boolean;
-  categories?: string[];
+  posts: Array<IPost>;
 }
 
 const BlogSectionHeader = ({
   title,
   categoryFilter,
-  categories,
+  posts,
 }: IBlogSectionHeader) => {
+  const categories: string[] = extractCategoriesFormated(posts);
   return (
     <>
       <div className="blog-section-header">
         <h2 className="title">{title}</h2>
-        {categoryFilter && categories ? (
-          <PostPreviewFilter options={categories} />
-        ) : null}
+        {categoryFilter ? <PostPreviewFilter options={categories} /> : null}
       </div>
       <style jsx>
         {`
