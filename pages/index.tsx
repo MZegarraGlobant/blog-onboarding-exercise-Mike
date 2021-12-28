@@ -39,7 +39,11 @@ const Home: NextPage<IHomeProps> = ({ posts }) => {
         posts={posts}
         categoryFilter
       />
-      {/* <BlogSection title="BROWSE ALL" variant="grid" posts={posts} /> */}
+      <BlogSection
+        title="MOST POPULAR"
+        variant={BlogSectionVariants.mostPopular}
+        posts={posts}
+      />
     </div>
   );
 };

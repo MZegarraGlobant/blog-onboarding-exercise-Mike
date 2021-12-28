@@ -1,15 +1,15 @@
 import { IPost } from "components/Post";
 import PostPreview from "components/PostPreview";
 
-interface IBrowseAll {
+interface IGridPostPreview {
   posts: Array<IPost>;
 }
 
-const BrowseAll = ({ posts }: IBrowseAll) => {
+const PostPreviewsGrid = ({ posts }: IGridPostPreview) => {
   return (
     <>
-      <div className="browseAll">
-        <div className="gridPostPreviewsCards">
+      <div className="postPreviewGrid">
+        <div className="PostPreviewsGridCards">
           {posts.map((post, key) => (
             <PostPreview
               variant="card"
@@ -21,13 +21,13 @@ const BrowseAll = ({ posts }: IBrowseAll) => {
       </div>
       <style jsx>
         {`
-          .browseAll {
+          .postPreviewGrid {
             display: flex;
             justify-content: center;
             width: 100%;
             margin-top: 2em;
           }
-          .gridPostPreviewsCards {
+          .PostPreviewsGridCards {
             display: grid;
             grid-template-columns: 33.3% 33.3% 33.3%;
             row-gap: 1em;
@@ -40,4 +40,4 @@ const BrowseAll = ({ posts }: IBrowseAll) => {
   );
 };
 
-export default BrowseAll;
+export default PostPreviewsGrid;

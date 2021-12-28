@@ -7,12 +7,13 @@ interface IEditoralStory {
 
 const EditoralStory = ({ posts }: IEditoralStory) => {
   const [firstPost, ...columnPosts] = posts;
+  const secondaryPost = columnPosts.slice(1, 4);
   return (
     <>
       <div className="editorialStory">
         <PostPreview post={firstPost} variant="front" />
         <div className="columnPosts">
-          {columnPosts.map((element, key) => (
+          {secondaryPost.map((element, key) => (
             <PostPreview
               post={element}
               variant="column"

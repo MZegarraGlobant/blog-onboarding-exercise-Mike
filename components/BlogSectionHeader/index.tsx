@@ -4,21 +4,31 @@ import PostPreviewFilter from "components/PostPreviewFilter";
 
 interface IBlogSectionHeader {
   title?: string;
-  categoryFilter?: boolean;
   posts: Array<IPost>;
+  categoryFilter?: boolean;
+  onCategoryChange?: Function;
 }
 
 const BlogSectionHeader = ({
   title,
-  categoryFilter,
   posts,
+  categoryFilter,
+  onCategoryChange,
 }: IBlogSectionHeader) => {
   const categories: string[] = extractCategoriesFormated(posts);
+  const handleFilterChange = (filterParameter: string) => {
+    if (onCategoryChange) onCategoryChange(filterParameter);
+  };
   return (
     <>
       <div className="blog-section-header">
         <h2 className="title">{title}</h2>
-        {categoryFilter ? <PostPreviewFilter options={categories} /> : null}
+        {categoryFilter ? (
+          <PostPreviewFilter
+            options={categories}
+            onFilterChange={handleFilterChange}
+          />
+        ) : null}
       </div>
       <style jsx>
         {`
