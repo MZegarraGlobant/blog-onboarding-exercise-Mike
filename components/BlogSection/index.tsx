@@ -48,7 +48,7 @@ const BlogSection = ({
             <PostPreviewsGrid posts={currentPosts} />
           ) : null}
           {variant === BlogSectionVariants.mostPopular ? (
-            <PostPreviewsGrid posts={currentPosts} />
+            <PostPreviewsGrid posts={currentPosts} loadMoreButton />
           ) : null}
         </div>
       </div>
