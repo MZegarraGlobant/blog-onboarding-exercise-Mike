@@ -34,15 +34,15 @@ const Home: NextPage<IHomeProps> = ({ posts }) => {
       </Head>
       <BlogSection variant={BlogSectionVariants.editorialStory} posts={posts} />
       <BlogSection
+        title="MOST POPULAR"
+        variant={BlogSectionVariants.mostPopular}
+        posts={posts}
+      />
+      <BlogSection
         title="BROWSE ALL"
         variant={BlogSectionVariants.browseAll}
         posts={posts}
         categoryFilter
-      />
-      <BlogSection
-        title="MOST POPULAR"
-        variant={BlogSectionVariants.mostPopular}
-        posts={posts}
       />
     </div>
   );
