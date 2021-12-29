@@ -1,8 +1,9 @@
 import EditoralStory from "components/EditorialStory";
-import BrowseAll from "components/BrowseAll";
+import PostPreviewsGrid from "components/PostPreviewsGrid";
 import BlogSectionHeader from "components/BlogSectionHeader";
 import { IPost } from "components/Post";
-import { BlogSectionVariants } from "src/utils/contentfulEnums";
+import { BlogSectionVariants, FilterVariants } from "src/utils/contentfulEnums";
+import { useState } from "react";
 
 interface IBlogSection {
   title?: string;
@@ -17,6 +18,17 @@ const BlogSection = ({
   categoryFilter,
   posts,
 }: IBlogSection) => {
+  const [currentPosts, setCurrentPosts] = useState<IPost[]>(posts);
+  const onCategoryFilterChange = (category: string) => {
+    if (category === FilterVariants.all) {
+      setCurrentPosts(posts);
+    } else {
+      const filteredPosts = posts.filter(
+        (element) => element.category === category
+      );
+      setCurrentPosts(filteredPosts);
+    }
+  };
   return (
     <>
       <div className="blog-section">
@@ -24,15 +36,19 @@ const BlogSection = ({
           <BlogSectionHeader
             title={title}
             categoryFilter={categoryFilter}
+            onCategoryChange={onCategoryFilterChange}
             posts={posts}
           />
         </div>
         <div>
           {variant === BlogSectionVariants.editorialStory ? (
-            <EditoralStory posts={posts} />
+            <EditoralStory posts={currentPosts} />
           ) : null}
           {variant === BlogSectionVariants.browseAll ? (
-            <BrowseAll posts={posts} />
+            <PostPreviewsGrid posts={currentPosts} />
+          ) : null}
+          {variant === BlogSectionVariants.mostPopular ? (
+            <PostPreviewsGrid posts={currentPosts} />
           ) : null}
         </div>
       </div>

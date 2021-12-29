@@ -2,15 +2,17 @@ import { useState, ChangeEvent, ChangeEventHandler } from "react";
 
 interface IPostPreviewFilter {
   options: string[];
+  onFilterChange: Function;
 }
 
-const PostPreviewFilter = ({ options }: IPostPreviewFilter) => {
+const PostPreviewFilter = ({ options, onFilterChange }: IPostPreviewFilter) => {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const handleChange: ChangeEventHandler<HTMLSelectElement> = (
     event: ChangeEvent<HTMLSelectElement>
   ) => {
     setSelectedCategory(event.target.value);
+    onFilterChange(event.target.value);
   };
 
   return (
