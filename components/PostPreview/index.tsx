@@ -1,5 +1,7 @@
+import Link from "next/link";
 import Image from "next/image";
 import { IPost } from "../Post";
+
 export interface IPostPreview {
   post: IPost;
   variant?: string;
@@ -8,31 +10,33 @@ export interface IPostPreview {
 const PostPreview = ({ post, variant }: IPostPreview) => {
   return (
     <>
-      <div className={`post-preview-${variant}-md`}>
-        <div className={`hero-post-preview-${variant}-state`}>
-          <Image
-            src={`https:${post.hero.url}`}
-            alt={post.hero.alt}
-            layout="fill"
-          />
-        </div>
-        <div className={`post-preview-information-${variant}-state`}>
-          <span className={`category-tag-${variant}-state`}>
-            {post.category}
-          </span>
-          <span className={`post-preview-title-${variant}-state`}>
-            {post.title}
-          </span>
-          <div className={`post-preview-date-author-${variant}-md`}>
-            <span className={`post-preview-date-${variant}-state`}>
-              {post.date}
+      <Link href={`/post/${post.slug}`}>
+        <div className={`post-preview-${variant}-md`}>
+          <div className={`hero-post-preview-${variant}-state`}>
+            <Image
+              src={`https:${post.hero.url}`}
+              alt={post.hero.alt}
+              layout="fill"
+            />
+          </div>
+          <div className={`post-preview-information-${variant}-state`}>
+            <span className={`category-tag-${variant}-state`}>
+              {post.category}
             </span>
-            <span className={`post-preview-author-${variant}-state`}>
-              {post.author}
+            <span className={`post-preview-title-${variant}-state`}>
+              {post.title}
             </span>
+            <div className={`post-preview-date-author-${variant}-md`}>
+              <span className={`post-preview-date-${variant}-state`}>
+                {post.date}
+              </span>
+              <span className={`post-preview-author-${variant}-state`}>
+                {post.author}
+              </span>
+            </div>
           </div>
         </div>
-      </div>
+      </Link>
       <style jsx global>
         {`
           .post-preview-front-md {
@@ -41,6 +45,7 @@ const PostPreview = ({ post, variant }: IPostPreview) => {
             display: flex;
             align-items: flex-end;
             position: relative;
+            cursor: pointer;
           }
           .post-preview-information-front-state {
             width: 100%;
@@ -89,6 +94,7 @@ const PostPreview = ({ post, variant }: IPostPreview) => {
             display: flex;
             align-items: center;
             position: relative;
+            cursor: pointer;
           }
           .hero-post-preview-column-state {
             position: relative;
@@ -123,6 +129,7 @@ const PostPreview = ({ post, variant }: IPostPreview) => {
             flex-direction: column;
             position: relative;
             transition: all 0.4s ease 0s;
+            cursor: pointer;
           }
           .post-preview-card-md:hover {
             transform: translateY(-5px);

@@ -44,11 +44,11 @@ const BlogSection = ({
           {variant === BlogSectionVariants.editorialStory ? (
             <EditoralStory posts={currentPosts} />
           ) : null}
-          {variant === BlogSectionVariants.browseAll ? (
-            <PostPreviewsGrid posts={currentPosts} />
-          ) : null}
           {variant === BlogSectionVariants.mostPopular ? (
             <PostPreviewsGrid posts={currentPosts} />
+          ) : null}
+          {variant === BlogSectionVariants.browseAll ? (
+            <PostPreviewsGrid posts={currentPosts} loadMoreButton />
           ) : null}
         </div>
       </div>

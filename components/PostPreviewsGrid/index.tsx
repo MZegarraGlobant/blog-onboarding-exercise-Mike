@@ -1,16 +1,30 @@
+import CustomButton from "components/CustomButton";
 import { IPost } from "components/Post";
 import PostPreview from "components/PostPreview";
+import { useEffect, useState } from "react";
 
 interface IGridPostPreview {
   posts: Array<IPost>;
+  loadMoreButton?: boolean;
 }
 
-const PostPreviewsGrid = ({ posts }: IGridPostPreview) => {
+const PostPreviewsGrid = ({ posts, loadMoreButton }: IGridPostPreview) => {
+  const [currentPostsDisplayed, setCurrentPostsDisplayed] = useState<number>(6);
+  const [currentPosts, setCurrentPosts] = useState<IPost[]>(posts.slice(0, 6));
+
+  useEffect(() => {
+    setCurrentPosts(posts.slice(0, currentPostsDisplayed));
+  }, [currentPostsDisplayed, posts]);
+
+  const onLoadMore = () => {
+    setCurrentPostsDisplayed(currentPostsDisplayed + 6);
+  };
+
   return (
     <>
       <div className="postPreviewGrid">
         <div className="PostPreviewsGridCards">
-          {posts.map((post, key) => (
+          {currentPosts.map((post, key) => (
             <PostPreview
               variant="card"
               post={post}
@@ -18,12 +32,16 @@ const PostPreviewsGrid = ({ posts }: IGridPostPreview) => {
             />
           ))}
         </div>
+        {loadMoreButton ? (
+          <CustomButton label="Load More" onClick={onLoadMore} />
+        ) : null}
       </div>
       <style jsx>
         {`
           .postPreviewGrid {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             width: 100%;
             margin-top: 2em;
           }
@@ -33,6 +51,7 @@ const PostPreviewsGrid = ({ posts }: IGridPostPreview) => {
             row-gap: 1em;
             width: 100%;
             justify-items: center;
+            margin-bottom: 2em;
           }
         `}
       </style>
