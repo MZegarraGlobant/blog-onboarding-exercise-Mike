@@ -17,8 +17,7 @@ const PostPreviewsGrid = ({ posts, loadMoreButton }: IGridPostPreview) => {
   }, [currentPostsDisplayed, posts]);
 
   const onLoadMore = () => {
-    console.log(currentPostsDisplayed);
-    setCurrentPostsDisplayed(currentPostsDisplayed + 3);
+    setCurrentPostsDisplayed(currentPostsDisplayed + 6);
   };
 
   return (
@@ -52,6 +51,7 @@ const PostPreviewsGrid = ({ posts, loadMoreButton }: IGridPostPreview) => {
             row-gap: 1em;
             width: 100%;
             justify-items: center;
+            margin-bottom: 2em;
           }
         `}
       </style>

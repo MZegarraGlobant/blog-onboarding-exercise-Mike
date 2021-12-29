@@ -6,7 +6,7 @@ interface ICustomButton {
 const CustomButton = ({ label, onClick }: ICustomButton) => {
   return (
     <>
-      <button onClick={() => onClick}>{label}</button>
+      <button onClick={() => onClick()}>{label}</button>
       <style jsx>
         {`
           button {
